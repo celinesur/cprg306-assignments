@@ -19,6 +19,25 @@ export default function NewItem() {
     }
   };
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const item = {
+      name: name,
+      quantity: quantity,
+      category: category,
+    };
+
+    console.log(item);
+    alert(`Item: ${name}
+          Quantity: ${quantity}
+          Category: ${category}`);
+
+    setName("");
+    setQuantity(1);
+    setCategory("produce");
+  }
+
   return (
     <div className="flex flex-col items-center">
       <div className="bg-white text-black rounded-lg shadow-md p-6 w-full max-w-sm">
