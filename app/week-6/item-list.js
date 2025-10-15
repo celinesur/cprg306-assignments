@@ -17,5 +17,32 @@ export default function ItemList() {
   });
 
   // render
-  
+  return (
+    <div className="p-4 bg-white text-black rounded-lg shadow-md max-w-md mx-auto">
+      <div className="flex justify-center mb-4 space-x-4">
+        <button
+          onClick={() => setSortBy("name")}
+          className={`px-4 py-2 rounded ${
+            sortBy === "name"
+              ? "bg-rose-300 text-white"
+              : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+          }`}
+        >
+          Sort by Name
+        </button>
+
+        <button
+          onClick={() => setSortBy("category")}
+          className={`px-4 py-2 rounded $ ${
+            sortBy === "category"
+              ? "bg-rose-300 text-white"
+              : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+          }`}
+        >
+          Sort by Category
+        </button>
+      </div>
+    
+    </div>
+  )
 }
