@@ -8,7 +8,7 @@ export default function ItemList() {
   const [sortBy, setSortBy] = useState("name");
 
   // sort items based on sortBy
-  const sortedItems = [...data].sort =((a, b) => {
+  const sortedItems = [...data].sort ((a, b) => {
     if (sortBy === "name") {
       return a.name.localeCompare(b.name);
     } else if (sortBy === "category") {
@@ -42,7 +42,17 @@ export default function ItemList() {
           Sort by Category
         </button>
       </div>
-    
+          
+      <ul>
+        {sortedItems.map((item) => (
+          <Item
+            key={item.id}
+            name={item.name}
+            quantity={item.quantity}
+            category={item.category}
+            />
+        ))}
+      </ul>
     </div>
-  )
+  );
 }
