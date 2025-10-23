@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-export default function NewItem() {
+export default function NewItem({ onAddItem }) {
   const [name, setName ] = useState("");
   const [quantity, setQuantity] = useState(1);
   const [category, setCategory] = useState("produce");
@@ -22,17 +22,13 @@ export default function NewItem() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const item = {
-      name: name,
-      quantity: quantity,
-      category: category,
+    const newItem = {
+      id: Math.random().toString(36).substring(2, 9),
+      name,
+      quantity,
+      category,
     };
-
-    console.log(item);
-    alert(`Item: ${name}
-          Quantity: ${quantity}
-          Category: ${category}`);
-
+    onAddItem(newItem);
     setName("");
     setQuantity(1);
     setCategory("produce");
@@ -114,7 +110,7 @@ export default function NewItem() {
         type="submit"
         className="w-full bg-rose-300 hover:bg-rose-400 text-white font-semibold py-2 rounded"
       >
-        Submit
+        Add Item
       </button>
     </form>
   );
