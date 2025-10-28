@@ -28,4 +28,29 @@ export default function MealIdeas({ ingredient}) {
   useEffect(() => {
     loadMealIdeas();
   }, [ingredient]);
+
+  return (
+    <div className="bg-white rounded-lg shadow-md p-6 w-full max-w-md">
+      <h2 className="text-xl font-bold mb-4 text-rose-500">
+        Meal Ideas for: {ingredient || "-"}
+      </h2>
+
+      {meals.length === 0 ? (
+        <p className="text-gray-500">No meal ideas yet</p>
+      ) : (
+        <ul className="space-y-2">
+          {meals.map((meal) => (
+            <li key={meal.idMeal} className="flex items-center space-x-3">
+              <img 
+                src={meal.strMealThumb}
+                alt={meal.strMeal}
+                className="w-12 h-12 rounded-md object-cover"
+              />
+              <span>{meal.strMeal}</span>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
 }
