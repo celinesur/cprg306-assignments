@@ -18,4 +18,12 @@ async function fetchMealIdeas(ingredient) {
 
 export default function MealIdeas({ ingredient}) {
   const [meals, setMeals] = useState([]);
+
+  async function loadMealIdeas() {
+    if (!ingredient) return;
+    const mealData = await fetchMealIdeas(ingredient);
+    setMeals(mealData);
+  }
+  
+  
 }
