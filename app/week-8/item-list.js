@@ -2,18 +2,15 @@
 import Item from "./item";
 import { useState } from "react";
 
-export default function ItemList({ items }) {
-  // use state for sorting
+export default function ItemList({ items, onItemSelect }) {
   const [sortBy, setSortBy] = useState("name");
 
-  // sort items based on sortBy
   const sortedItems = [...items].sort ((a, b) =>
     sortBy === "name"
       ? a.name.localeCompare(b.name)
       : a.category.localeCompare(b.category)
   );
 
-  // render
   return (
     <div className="p-4 bg-white text-black rounded-lg shadow-md max-w-md mx-auto">
       <div className="flex justify-center mb-4 space-x-4">
@@ -47,6 +44,7 @@ export default function ItemList({ items }) {
             name={item.name}
             quantity={item.quantity}
             category={item.category}
+            onSelect={() => onItemSelect(item)}
             />
         ))}
       </ul>
