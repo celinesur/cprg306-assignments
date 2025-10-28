@@ -31,8 +31,8 @@ export default function MealIdeas({ ingredient}) {
 
   return (
     <div className="bg-white rounded-lg shadow-md p-6 w-full max-w-md">
-      <h2 className="text-xl font-bold mb-4 text-rose-500">
-        Meal Ideas for: {ingredient || "-"}
+      <h2 className="text-xl font-bold mb-4 text-rose-300">
+        Meal Ideas for: {ingredient || ""}
       </h2>
 
       {meals.length === 0 ? (
@@ -46,7 +46,7 @@ export default function MealIdeas({ ingredient}) {
                 alt={meal.strMeal}
                 className="w-12 h-12 rounded-md object-cover"
               />
-              <span>{meal.strMeal}</span>
+              <span className="text-rose-400">{meal.strMeal}</span>
             </li>
           ))}
         </ul>
