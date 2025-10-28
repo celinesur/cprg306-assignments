@@ -8,6 +8,7 @@ import MealIdeas from "./meal-ideas";
 
 export default function Page () {
   const [items, setItems] = useState(itemsData);
+  const [selectedItemName, setSelectedItemName] = useState("");
 
   const handleAddItem = (newItem) => {
     setItems((prevItems) => [newItem, ...prevItems]);
