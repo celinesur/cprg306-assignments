@@ -1,5 +1,6 @@
 "use client";
 
+import { useUserAuth } from "../../contexts/AuthContext";
 import { useState } from "react";
 import ItemList from "./item-list";
 import NewItem from "./new-item";
