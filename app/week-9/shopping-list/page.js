@@ -10,6 +10,23 @@ import MealIdeas from "./meal-ideas";
 export default function Page () {
   const [items, setItems] = useState(itemsData);
   const [selectedItemName, setSelectedItemName] = useState("");
+  const {user} = useUserAuth();
+
+  if (!user) {
+    return (
+      <main className="flex flex-col items-center justify-center min-h-screen text-gray-700 bg-gradient-to-b from-pink-100 via-rose-200 to-pink-300">
+        <p className="text-xl font-semibold mb-4">
+          You must be logged in to view this page.
+        </p>
+        <a
+          href="/week-9"
+          className="bg-rose-400 text-white px-4 py-2 rounded hover:bg-rose-500"
+          >
+            Go back to login
+          </a>
+      </main>
+    );
+  }
 
   const handleAddItem = (newItem) => {
     setItems((prevItems) => [newItem, ...prevItems]);
