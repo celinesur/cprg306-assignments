@@ -10,7 +10,7 @@ export default function Page() {
     <main className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-pink-100 via-rose-200 to-pink-300 text-black">
       {!user ? (
         <>
-          <h1 className="text-3xl font-bold mb-6">Welcome to Week 9!</h1>
+          <h1 className="text-3xl font-bold mb-6">Welcome to Week 10!</h1>
           <button
             onClick={gitHubSignIn}
             className="bg-rose-400 text-white px-6 py-2 rounded-lg shadow hover:bg-rose-500 transition"
